@@ -101,7 +101,7 @@ class Form extends Component {
                     value="Save Profile"
                 />
             </form>
-        );
+        )
     }
 }
 
