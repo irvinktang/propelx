@@ -16,6 +16,7 @@ class Form extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleTags = this.handleTags.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,7 +25,8 @@ class Form extends Component {
         const name = target.name;
         const value = target.value;
 
-        this.setState({value: event.target.value});
+        this.setState({
+            [name]: value});
     }
 
     handleTags(tags) {
@@ -60,9 +62,28 @@ class Form extends Component {
                     Value={this.state.bio}
                     OnChange={this.handleChange}
                 />
-                <TagsInput 
+                <Expertise 
                     Name="Areas of Expertise"
                     Value={this.state.expertise}
+                    OnChange={this.handleTags}
+                />
+                <TextInput
+                    Name="LinkedIn"
+                    Type="text"
+                    Value={this.state.linkedin}
+                    OnChange={this.handleChange}
+                />
+                <TextInput
+                    Name="Twitter"
+                    Type="text"
+                    Value={this.state.twitter}
+                    OnChange={this.handleChange}
+                />
+                <TextInput
+                    Name="Website"
+                    Type="text"
+                    Value={this.state.website}
+                    OnChange={this.handleChange}
                 />
             </form>
         );
