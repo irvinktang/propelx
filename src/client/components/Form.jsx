@@ -34,8 +34,19 @@ class Form extends Component {
     }
 
     handleSubmit(event) {
-        alert('Something was submitted' + this.state.value);
         event.preventDefault();
+        fetch('/', {
+            method: "POST",
+            headers: {
+                Accept: "application.json",
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(res => res.json())
+        .catch(err => {
+            console.log("Error", err);
+        })
     }
 
     render() {
@@ -84,6 +95,10 @@ class Form extends Component {
                     Type="text"
                     Value={this.state.website}
                     OnChange={this.handleChange}
+                />
+                <input
+                    type="submit"
+                    value="Save Profile"
                 />
             </form>
         );
