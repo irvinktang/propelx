@@ -1,25 +1,25 @@
 var mongoose = require('mongoose');
 
 var ExpertSchema = new mongoose.Schema({
-    name: {
+    Name: {
         type: String,
         required: [true, "Please enter a name"]
     },
-    role: {
+    Role: {
         type: String,
         required: [true, "Please enter your current role"]
     },
-    bio: {
+    Bio: {
         type: String,
         required: [true, "Please tell us about yourself!"]
     },
-    expertise: {
+    Expertise: {
         type: [String],
         required: [true, "What fields can you consult on?"]
     },
-    linkedin: String,
-    twitter: String,
-    website: String
+    LinkedIn: String,
+    Twitter: String,
+    Website: String
 });
 
 module.exports = mongoose.model("Expert", ExpertSchema);

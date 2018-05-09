@@ -6,13 +6,13 @@ class Form extends Component {
     constructor(props){
         super(props);
         this.state = {
-            name: '',
-            role: '',
-            bio: '',
-            expertise: [],
-            linkedin: '',
-            twitter: '',
-            website: ''
+            Name: '',
+            Role: '',
+            Bio: '',
+            Expertise: [],
+            LinkedIn: '',
+            Twitter: '',
+            Website: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,13 +24,15 @@ class Form extends Component {
         const target = event.target;
         const name = target.name;
         const value = target.value;
-
         this.setState({
-            [name]: value});
+            [name]: value
+        });
     }
 
     handleTags(tags) {
-        this.setState({expertise: tags})
+        this.setState({
+            Expertise: tags
+        })
     }
 
     handleSubmit(event) {
@@ -56,44 +58,44 @@ class Form extends Component {
                     Name="Name"
                     Placeholder="Your Name Here"
                     Type="text"
-                    Value={this.state.name}
+                    Value={this.state.Name}
                     OnChange={this.handleChange}
                 />
                 <TextInput 
                     Name="Role"
                     Placeholder="Ex. CEO of Startup"
                     Type="text"
-                    Value={this.state.role}
+                    Value={this.state.Role}
                     OnChange={this.handleChange}
                 />
                 <TextInput 
                     Name="Bio"
                     Placeholder="Tell us about yourself!"
                     Type="textarea"
-                    Value={this.state.bio}
+                    Value={this.state.Bio}
                     OnChange={this.handleChange}
                 />
                 <Expertise 
-                    Name="Areas of Expertise"
-                    Value={this.state.expertise}
+                    Name="Expertise"
+                    Value={this.state.Expertise}
                     OnChange={this.handleTags}
                 />
                 <TextInput
                     Name="LinkedIn"
                     Type="text"
-                    Value={this.state.linkedin}
+                    Value={this.state.LinkedIn}
                     OnChange={this.handleChange}
                 />
                 <TextInput
                     Name="Twitter"
                     Type="text"
-                    Value={this.state.twitter}
+                    Value={this.state.Twitter}
                     OnChange={this.handleChange}
                 />
                 <TextInput
                     Name="Website"
                     Type="text"
-                    Value={this.state.website}
+                    Value={this.state.Website}
                     OnChange={this.handleChange}
                 />
                 <input
