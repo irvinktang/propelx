@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const Expert = require('../models/expert.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -20,7 +21,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post("/", function(req,res) {
-    console.log("It works!");
-})
+    Expert.create(req.body, function(err, expert) {
+        if(err) return console.error(err);
+    });
+});
 
 app.listen(PORT);
