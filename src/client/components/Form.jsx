@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import TextInput from './presentational/TextInput.jsx';
 
 
 class Form extends Component {
     constructor(props){
         super(props);
         this.state = {
-            value: ''
+            name: '',
+            role: '',
+            bio: '',
+            expertise: [],
+            linkedin: '',
+            twitter: '',
+            website: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
