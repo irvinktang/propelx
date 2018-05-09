@@ -31,15 +31,12 @@ class Form extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>Name: </label>
-                <input
-                    type="text"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                />
-                <input 
-                    type="submit"
-                    value="Save"
+                <TextInput 
+                    Name="Name"
+                    Placeholder="Your Name Here"
+                    Type="text"
+                    Value={this.state.name}
+                    OnChange={this.handleChange}
                 />
             </form>
         );
