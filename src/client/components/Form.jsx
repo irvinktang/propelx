@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from './presentational/TextInput.jsx';
-
+import Expertise from './presentational/Expertise.jsx';
 
 class Form extends Component {
     constructor(props){
@@ -20,7 +20,15 @@ class Form extends Component {
     }
 
     handleChange(event) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+
         this.setState({value: event.target.value});
+    }
+
+    handleTags(tags) {
+        this.setState({expertise: tags})
     }
 
     handleSubmit(event) {
@@ -37,6 +45,24 @@ class Form extends Component {
                     Type="text"
                     Value={this.state.name}
                     OnChange={this.handleChange}
+                />
+                <TextInput 
+                    Name="Role"
+                    Placeholder="Ex. CEO of Startup"
+                    Type="text"
+                    Value={this.state.role}
+                    OnChange={this.handleChange}
+                />
+                <TextInput 
+                    Name="Bio"
+                    Placeholder="Tell us about yourself!"
+                    Type="textarea"
+                    Value={this.state.bio}
+                    OnChange={this.handleChange}
+                />
+                <TagsInput 
+                    Name="Areas of Expertise"
+                    Value={this.state.expertise}
                 />
             </form>
         );
