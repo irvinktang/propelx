@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextInput from './presentational/TextInput.jsx';
 import Expertise from './presentational/Expertise.jsx';
+import axios from 'axios';
 
 class Form extends Component {
     constructor(props){
@@ -32,23 +33,40 @@ class Form extends Component {
     handleTags(tags) {
         this.setState({
             Expertise: tags
-        })
+        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('/', {
-            method: "POST",
-            headers: {
-                Accept: "application.json",
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify(this.state)
+        axios({
+            method: 'post',
+            url: '/',
+            data: this.state
         })
-        .then(res => res.json())
-        .catch(err => {
-            console.log("Error", err);
+        .then(res => {
+            alert(`Thank you ${res.data.Name} - Successfully saved profile!`)
         })
+        .catch(err => {throw err});
+
+        // fetch('/', {
+        //     method: "POST",
+        //     headers: {
+        //         Accept: "application.json",
+        //         'Content-Type': "application/json"
+        //     },
+        //     body: JSON.stringify(this.state)
+        // })
+        // .then(validateResponse)
+        // .catch(err => {
+        //     console.log("Error", err);
+        // });
+    }
+
+    validateReponse(response) {
+        if(!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
     }
 
     render() {

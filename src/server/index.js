@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({
 app.post("/", function(req,res) {
     Expert.create(req.body, function(err, expert) {
         if(err) return console.error(err);
+        res.json(expert);
     });
 });
 
